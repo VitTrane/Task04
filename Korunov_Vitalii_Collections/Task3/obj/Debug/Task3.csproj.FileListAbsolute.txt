@@ -1,0 +1,9 @@
+E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task3\bin\Debug\Task3.exe.config
+E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task3\bin\Debug\Task3.exe
+E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task3\bin\Debug\Task3.pdb
+E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task3\obj\Debug\Task3.csprojResolveAssemblyReference.cache
+E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task3\obj\Debug\Task3.exe
+E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task3\obj\Debug\Task3.pdb
+E:\My\Labs\Epam\Korunov_Vitalii_Collections\Task3\bin\Debug\Task3.exe.config
+E:\My\Labs\Epam\Korunov_Vitalii_Collections\Task3\obj\Debug\Task3.exe
+E:\My\Labs\Epam\Korunov_Vitalii_Collections\Task3\obj\Debug\Task3.pdb
