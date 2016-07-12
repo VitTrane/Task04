@@ -15,7 +15,6 @@ namespace Task3
 
         private T[] _list;
 
-        private int _capacity;
         private int _count;
 
         public DynamicArray()
@@ -24,35 +23,35 @@ namespace Task3
                 (NameValueCollection)ConfigurationManager.GetSection("dynamicListSettings");
 
             var defaultCapacity = settings["DefaultCapacity"];
-
+            int length = 0;
             if (defaultCapacity != null)
-                _capacity = int.Parse(defaultCapacity);
-            else 
-                _capacity = DEFAULT_CAPACITY;
+                length = int.Parse(defaultCapacity);
+            else
+                length = DEFAULT_CAPACITY;
 
             _count = DEFAULT_COUNT;
-            _list = new T[_capacity];
+            _list = new T[length];
         }
 
         public DynamicArray(int capacity)
         {
-            _capacity = capacity;
+            int length = capacity;
             _count = DEFAULT_COUNT;
             _list = new T[capacity];
         }
 
         public DynamicArray(IEnumerable<T> collection)
         {
-            _capacity = collection.ToList().Count;
-            _count = _capacity;
-            _list = new T[_capacity];
-            Array.Copy(collection.ToArray(), _list, _capacity);            
+            int length = collection.ToList().Count;
+            _count = length;
+            _list = new T[length];
+            Array.Copy(collection.ToArray(), _list, length);
         }
 
         /// <summary>
         /// Возвращает число элементов, которое содержиться в коллекции
         /// </summary>
-        public int Length
+        public int Count
         {
             get { return _count; }
         }
@@ -62,21 +61,21 @@ namespace Task3
         /// </summary>
         public int Capacity
         {
-            get { return _capacity; }
+            get { return _list.Length; }
         }
 
         public T this[int index]
         {
             get
             {
-                if (index < 0 || index >= _capacity)
+                if (index < 0 || index >= _count)
                     throw new ArgumentOutOfRangeException();
 
                 return _list[index];
             }
             set
             {
-                if (index < 0 || index >= _capacity)
+                if (index < 0 || index >= _count)
                     throw new ArgumentOutOfRangeException();
 
                 _list[index] = value;
@@ -89,25 +88,25 @@ namespace Task3
         /// <param name="item">Объект, добавляемый в конец колекцыы</param>
         public void Add(T item)
         {
-            if (_count >= _capacity) 
+            if (_count >= _list.Length)
             {
-                ExpandList(_capacity);
+                ExpandList(_list.Length);
             }
 
             _list[_count] = item;
-            _count++;  
+            _count++;
         }
 
         /// <summary>
         /// Добавляет элементы указанной коллекциии в конец списка
         /// </summary>
         /// <param name="collection">Коллекция, элементы которой добавляются в конец списка</param>
-        public void AddRange(IEnumerable<T> collection) 
+        public void AddRange(IEnumerable<T> collection)
         {
             int countInCollection = collection.ToList().Count;
-            if (_capacity - _count < countInCollection) 
+            if (_list.Length - _count < countInCollection)
             {
-                ExpandList(countInCollection - (_capacity - _count));
+                ExpandList(countInCollection - (_list.Length - _count));
             }
 
             foreach (var item in collection)
@@ -121,16 +120,16 @@ namespace Task3
         /// </summary>
         /// <param name="index">Индекс по которому нужно вставить элемент</param>
         /// <param name="item">Элемент, вставляемый по указанному индексу</param>
-        public bool TryInsert(int index,T item) 
+        public bool TryInsert(int index, T item)
         {
-            if (index < 0 || index >= _capacity)
+            if (index < 0 || index >= _count)
                 throw new ArgumentOutOfRangeException();
 
             try
             {
-                if (_count + 1 > _capacity)
+                if (_count + 1 > _list.Length)
                 {
-                    ExpandList(_capacity);
+                    ExpandList(_list.Length);
                 }
 
                 _count++;
@@ -145,9 +144,9 @@ namespace Task3
             catch
             {
                 return false;
-            }            
+            }
         }
-                
+
         /// <summary>
         /// Удаляет первое вхождение указанного объекта из списка
         /// </summary>
@@ -157,9 +156,9 @@ namespace Task3
             bool isRemoved = false;
             for (int i = 0; i < _count; i++)
             {
-                if (item.Equals(_list[i])) 
+                if (item.Equals(_list[i]))
                 {
-                    ShiftArray(_list,i,_count);
+                    ShiftArray(_list, i, _count);
                     _count--;
                     isRemoved = true;
                     break;
@@ -167,14 +166,14 @@ namespace Task3
             }
 
             return isRemoved;
-        }    
+        }
 
         /// <summary>
         /// Возращает перечислитель, осуществляющий перебор элементов списка
         /// </summary>
         public IEnumerator<T> GetEnumerator()
         {
-            return new DataIterator<T>(_list,_count);
+            return new DataIterator<T>(_list, _count);
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
@@ -188,8 +187,8 @@ namespace Task3
         /// <param name="capacity">Величина, на которую нужно расширить массив</param>
         private void ExpandList(int capacity)
         {
-            _capacity += capacity;
-            T[] extendedList = new T[_capacity];
+            int length = _list.Length + capacity;
+            T[] extendedList = new T[length];
             Array.Copy(_list, extendedList, _count);
             _list = extendedList;
         }
@@ -238,7 +237,7 @@ namespace Task3
 
             public bool MoveNext()
             {
-                if (_index >= _count - 1) 
+                if (_index >= _count - 1)
                 {
                     Reset();
                     return false;
@@ -252,6 +251,6 @@ namespace Task3
             {
                 _index = -1;
             }
-        } 
+        }
     }
 }

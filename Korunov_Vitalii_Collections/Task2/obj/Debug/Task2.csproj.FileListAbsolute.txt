@@ -4,3 +4,9 @@ E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task2\bin\Debug\Task2.pdb
 E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task2\obj\Debug\Task2.exe
 E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task2\obj\Debug\Task2.pdb
 E:\My\Labs\Epam\Korunov_Vitalii_Task4\Task2\obj\Debug\Task2.csprojResolveAssemblyReference.cache
+E:\My\Git\GitHubTaskForCollections\Korunov_Vitalii_Collections\Task2\bin\Debug\Task2.exe.config
+E:\My\Git\GitHubTaskForCollections\Korunov_Vitalii_Collections\Task2\bin\Debug\Task2.exe
+E:\My\Git\GitHubTaskForCollections\Korunov_Vitalii_Collections\Task2\bin\Debug\Task2.pdb
+E:\My\Git\GitHubTaskForCollections\Korunov_Vitalii_Collections\Task2\obj\Debug\Task2.csprojResolveAssemblyReference.cache
+E:\My\Git\GitHubTaskForCollections\Korunov_Vitalii_Collections\Task2\obj\Debug\Task2.exe
+E:\My\Git\GitHubTaskForCollections\Korunov_Vitalii_Collections\Task2\obj\Debug\Task2.pdb

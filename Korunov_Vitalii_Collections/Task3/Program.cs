@@ -52,7 +52,7 @@ namespace Task3
 
             Console.WriteLine();
             Console.WriteLine("Емкость списка: " + _list.Capacity);
-            Console.WriteLine("Кол-во элементов в списке: " + _list.Length);
+            Console.WriteLine("Кол-во элементов в списке: " + _list.Count);
         }
 
         private static void DemonstrateMethodRemove() 
